@@ -25,7 +25,8 @@ ENV METACAT_CATALOG_DIR=/etc/catalog \
     
 ENV METACAT_VERSION=0.1.14 
 
-RUN wget -q -nv -O ${CATALINA_HOME}/webapps/metacat.war \
+RUN mkdir /metacat/ && \
+    wget -q -nv -O /metacat/metacat.war \
     http://central.maven.org/maven2/com/netflix/metacat/metacat-server/${METACAT_VERSION}/metacat-server-${METACAT_VERSION}.war 
 
 
