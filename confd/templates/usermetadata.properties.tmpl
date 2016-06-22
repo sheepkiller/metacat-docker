@@ -1,3 +1,7 @@
 javax.jdo.option.driverClassName=com.mysql.jdbc.Driver
 javax.jdo.option.defaultAutoCommit=false
 javax.jdo.option.url=jdbc:mysql://{{getv "/mysql/host"}}/{{getv "/mysql/database"}}?user={{getv "/mysql/user"}}&password={{getv "/mysql/password"}}
+javax.jdo.option.testOnBorrow=true
+javax.jdo.option.validationQuery=SELECT 1
+javax.jdo.option.removeAbandoned=true
+
