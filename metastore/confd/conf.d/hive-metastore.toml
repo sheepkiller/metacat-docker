@@ -1,0 +1,14 @@
+[template]
+src = "hive-metastore.xml.tmpl"
+dest = "/apache-hive/conf/hive-site.xml"
+
+keys = [
+  "/mysql/host",
+  "/mysql/database",
+  "/mysql/user",
+  "/mysql/password",
+  "/hive/fs",
+  "/hive/autocreate/schema",
+  "/hive/autocreate/tables"
+]
+

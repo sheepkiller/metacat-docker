@@ -2,7 +2,7 @@ version: '2'
 services:
   mysql:
     image: mysql
-    restart: always
+#    restart: always
     ports:
       - "3306:3306"
     environment:
@@ -11,15 +11,26 @@ services:
       - MYSQL_PASSWORD=metacat
       - MYSQL_DATABASE=metacat
 
-  metacat:
-    build: .
-    network_mode: "host"
+  metastore:
+    build: metastore
     ports:
-      - "8080:8080"
-#    volumes:
-#      - "<changeme>/catalog:/etc/catalog"
+      - "9083:9083"
+    volumes:
+      - "./catalog:/etc/catalog"
     environment:
       - MYSQL_USER=metacat
       - MYSQL_PASSWORD=metacat
       - MYSQL_DATABASE=metacat
-      - MYSQL_HOST=127.0.0.1:3306
+      - MYSQL_HOST=mysql:3306
+
+  metacat:
+    build: .
+    ports:
+      - "8081:8080"
+    volumes:
+      - "./catalog:/etc/catalog"
+    environment:
+      - MYSQL_USER=metacat
+      - MYSQL_PASSWORD=metacat
+      - MYSQL_DATABASE=metacat
+      - MYSQL_HOST=mysql:3306
