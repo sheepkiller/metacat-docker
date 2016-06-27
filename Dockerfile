@@ -23,7 +23,7 @@ ENV METACAT_CATALOG_DIR=/etc/catalog \
     MYSQL_PASSWORD=metacat
     
     
-ENV METACAT_VERSION=0.1.21
+ENV METACAT_VERSION=0.1.22
 
 RUN mkdir /metacat/ && \
     wget -q -nv -O /metacat/metacat.war \
