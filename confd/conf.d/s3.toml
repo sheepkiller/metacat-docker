@@ -1,0 +1,10 @@
+[template]
+src = "usermetadata.properties.tmpl"
+dest = "/usr/local/tomcat/conf/s3.properties"
+
+keys = [
+  "/mysql/host",
+  "/mysql/database",
+  "/mysql/user",
+  "/mysql/password"
+]
